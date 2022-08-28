@@ -1,0 +1,8 @@
+SELECT u.first_name,u.last_name
+from users u
+where u.id in
+(select urm.id
+from roles r
+inner join user_role_map urm
+on r.id=urm.role_id and r.name='CUSTOMER_CARE' );
+
